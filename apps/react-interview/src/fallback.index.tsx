@@ -5,12 +5,12 @@ import './App.css'
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import { routerOptions } from './router';
 
-
-
+const basename = `${import.meta.env.BASE_URL ?? ''}`.concat(window.location.pathname.includes('fallback') ? 'fallback': '')
+console.log(basename)
 const rootEl = document.getElementById('root');
 if (rootEl) {
   const router = createBrowserRouter(routerOptions, {
-    basename: `${import.meta.env.BASE_URL ?? ''}`.concat(window.location.pathname.includes('fallback') ? 'fallback': '')
+    basename
   })
   const root = ReactDOM.createRoot(rootEl);
 
