@@ -10,7 +10,7 @@ import { routerOptions } from './router';
 const rootEl = document.getElementById('root');
 if (rootEl) {
   const router = createBrowserRouter(routerOptions, {
-    basename: window.location.pathname.includes('fallback') ? 'fallback': undefined
+    basename: `${import.meta.env.BASE_URL ?? ''}`.concat(window.location.pathname.includes('fallback') ? 'fallback': '')
   })
   const root = ReactDOM.createRoot(rootEl);
 
