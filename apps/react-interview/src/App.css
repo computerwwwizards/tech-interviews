@@ -1,0 +1,12 @@
+@import 'tailwindcss';
+
+body{
+  background-color: #191919;
+  color: white;
+  min-height: 100vh;
+}
+
+ul{
+  list-style: disc;
+  padding-inline-start: 24px;
+}
