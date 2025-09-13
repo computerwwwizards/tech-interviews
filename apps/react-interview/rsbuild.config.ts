@@ -34,6 +34,9 @@ export default defineConfig(({
   const isDev = command === 'dev'
   return {
   plugins: [pluginReact()],
+  server: {
+    base: isDev ? undefined : '/tech-interviews/' as string
+  },
   dev: {
     setupMiddlewares: [
       ({ unshift }, serverContext) => {
@@ -66,7 +69,10 @@ export default defineConfig(({
       source: {
         entry: {
           index: './src/index.tsx',
-          fallback: './src/fallback.index.tsx'
+          '404': './src/fallback.index.tsx',
+          ...(isDev? {
+            fallback: './src/fallback.index.tsx'
+          }:{})
         }
       }
     },
@@ -80,6 +86,9 @@ export default defineConfig(({
         target: 'node',
         filename: {
           js: '[name].cjs'
+        },
+        distPath : {
+          root: 'server'
         }
       }
     }

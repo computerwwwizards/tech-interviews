@@ -16,3 +16,4 @@ async function prerender(pagePath: string, replaceCue = '<!-- here goes the cont
 
 
 prerender(join(process.cwd(), 'dist', 'index.html'))
+prerender(join(process.cwd(), 'dist', '404.html'))
