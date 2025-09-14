@@ -82,7 +82,7 @@ function Page() {
         Use the browser devtools to get ligthouse performance metrics
         of this page, and of <a 
           className="underline text-cyan-400" 
-          href="./?deferedHydrationDeactivated=true"
+          href="./?deferedHydrationDeactivated=true&heavyProcessActive=true"
         >this variant of this same page</a>,
         can u tell why there is a substantial difference in the performance (hint: inspect network calls)
       </>

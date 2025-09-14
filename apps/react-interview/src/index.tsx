@@ -7,15 +7,20 @@ const { body } = document
 
 const hasLoadedObserver = new ObservableStore(false);
 
+const isDeferedInactive = new URLSearchParams(window.location.search).get('deferedHydrationDeactivated')
+const hasHeavyProcessFlag = new URLSearchParams(window.location.search).get('heavyProcessActive');
+
+
 const cleanUp = hasLoadedObserver
   .subscribeWithCleanup(hasLoaded => {
     if (hasLoaded) {
-      import('./lazy.ini').then(({init})=>init())
+      import('./lazy.ini').then(({init})=>init(!!isDeferedInactive && !!hasHeavyProcessFlag))
       cleanUp();
     }
   });
 
-const isDeferedInactive = new URLSearchParams(window.location.search).get('deferedHydrationDeactivated')
+
+
 const handler = function (this: typeof body) {
       hasLoadedObserver.update(true);
     }
