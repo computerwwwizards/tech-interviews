@@ -52,7 +52,7 @@ export default defineConfig(({
               return next();
             }
           } 
-          if(!/.js|.css|.js|.png|.json|.tsx|.ts/.test(req.url ?? ''))
+          if(!/.js|.css|.js|.png|.json|.tsx|.ts|.mjs/.test(req.url ?? ''))
             req.url = '/fallback'
           next();
           

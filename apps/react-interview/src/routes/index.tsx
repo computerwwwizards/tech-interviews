@@ -1,7 +1,9 @@
-import { Link, useLoaderData, type RouteObject } from "react-router";
+import { Link, useLoaderData } from "react-router";
 import { TextQuestion } from "../components/text-question";
+import type { CustomRouteObject } from "../types";
 
-export const routeConfig: RouteObject = {
+
+export const routeConfig: CustomRouteObject = {
   path: '/',
   Component: Page,
   loader() {

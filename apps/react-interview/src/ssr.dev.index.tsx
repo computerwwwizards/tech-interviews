@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 
 import { createStaticHandler, createStaticRouter, StaticRouterProvider } from 'react-router';
-import { routerOptions } from './router';
+import { routes } from './server.router';
 
 export async function render(location: string = '/') {
-  const { query, dataRoutes } = createStaticHandler(routerOptions);
+  const { query, dataRoutes } = createStaticHandler(routes);
   
   const fetchRequest = new Request(`http://localhost${location}`);
   
