@@ -24,7 +24,7 @@ if (navigator.userActivation.hasBeenActive || isDeferedInactive) {
     const handler = function (this: typeof body) {
       hasLoadedObserver.update(true);
 
-      this.removeEventListener('scroll', handler);
+      this.removeEventListener(eventType, handler);
     }
 
 
@@ -51,6 +51,6 @@ if (navigator.userActivation.hasBeenActive || isDeferedInactive) {
 
   setTimeout(() => {
     hasLoadedObserver.update(true);
-  }, 3500)
+  }, 5500)
 
 }

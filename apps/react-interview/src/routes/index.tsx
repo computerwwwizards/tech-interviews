@@ -95,8 +95,14 @@ function Page() {
         'Client metrics'
       ]}
     />
-    <Link to={'client-only'} viewTransition>
-      Next questions
-    </Link>
+    <div className="p-4">
+      <Link 
+        className="hover:bg-blue-900 block w-full rounded-2xl bg-fuchsia-600 p-3" 
+        to={'client-only'} 
+        viewTransition
+      >
+        Next questions
+      </Link>
+    </div>
   </main>
 }

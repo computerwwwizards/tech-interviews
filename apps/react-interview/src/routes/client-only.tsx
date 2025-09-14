@@ -2,7 +2,7 @@ import { type RouteObject  }from 'react-router'
 
 export const routeConfig: RouteObject = {
   path: '/client-only',
-  Component: Page
+  Component: Page,
 }
 
 

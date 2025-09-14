@@ -49,13 +49,13 @@ export default defineConfig(({
             } catch (err) {
               logger.error('SSR render error, downgrade to CSR...');
               logger.error(err);
-              next();
+              return next();
             }
-          } else {
-            if(!/.js|.css|.js|.png|.json/.test(req.url ?? ''))
+          } 
+          if(!/.js|.css|.js|.png|.json|.tsx|.ts/.test(req.url ?? ''))
             req.url = '/fallback'
-            next();
-          }
+          next();
+          
         });
       },
     ],
@@ -88,7 +88,7 @@ export default defineConfig(({
           js: '[name].cjs'
         },
         distPath : {
-          root: 'server'
+          root: isDev ? undefined : 'server'
         }
       }
     }

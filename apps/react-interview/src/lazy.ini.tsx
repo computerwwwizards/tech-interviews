@@ -8,6 +8,9 @@ export async function init() {
     basename
   })
 
+  
+  Array.from({length: 100_000}).reduce((prev: number, _next, index)=>prev+index,0)
+
   hydrateRoot(
     document.body.querySelector("#root")!,
     <RouterProvider router={router} />
