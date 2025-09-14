@@ -8,13 +8,14 @@ const { body } = document
 const hasLoadedObserver = new ObservableStore(false);
 
 const isDeferedInactive = new URLSearchParams(window.location.search).get('deferedHydrationDeactivated')
-const hasHeavyProcessFlag = new URLSearchParams(window.location.search).get('heavyProcessActive');
+
 
 
 const cleanUp = hasLoadedObserver
   .subscribeWithCleanup(hasLoaded => {
+    const hasHeavyProcessFlag = new URLSearchParams(window.location.search).get('heavyProcessActive');
     if (hasLoaded) {
-      import('./lazy.ini').then(({init})=>init(!!isDeferedInactive && !!hasHeavyProcessFlag))
+      import('./lazy.init').then(({ init }) => init(!!isDeferedInactive && !!hasHeavyProcessFlag))
       cleanUp();
     }
   });
@@ -22,13 +23,15 @@ const cleanUp = hasLoadedObserver
 
 
 const handler = function (this: typeof body) {
-      hasLoadedObserver.update(true);
-    }
-      function appendListener<K extends keyof HTMLElementEventMap>(eventType: K) {
-    body.addEventListener(eventType, handler)
+  hasLoadedObserver.update(true);
+}
 
-    return () => body.removeEventListener(eventType, handler)
-  }
+function appendListener<K extends keyof HTMLElementEventMap>(eventType: K) {
+  body.addEventListener(eventType, handler)
+
+  return () => body.removeEventListener(eventType, handler)
+}
+
 if (navigator.userActivation.hasBeenActive || isDeferedInactive) {
   hasLoadedObserver.update(true);
 } else {
@@ -46,7 +49,6 @@ if (navigator.userActivation.hasBeenActive || isDeferedInactive) {
         clean()
       })
     }
-
   })
 
   setTimeout(() => {

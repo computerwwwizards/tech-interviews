@@ -45,7 +45,7 @@ export default defineConfig(({
         unshift(async (req, res, next) => {
           if (req.method === 'GET' && req.url === '/') {
             try {
-              await serverRenderMiddleware(req, res, next);
+              return await serverRenderMiddleware(req, res, next);
             } catch (err) {
               logger.error('SSR render error, downgrade to CSR...');
               logger.error(err);

@@ -4,6 +4,6 @@ import { routeConfig as clientOnlyRouteConfig } from './routes/client-only'
 
 export const routerOptions: RouteObject[] = [
   routeConfig,
-  clientOnlyRouteConfig
+  clientOnlyRouteConfig,
 ]
 
