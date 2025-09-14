@@ -9,7 +9,7 @@ export async function init() {
   })
 
   
-  Array.from({length: 100_000}).reduce((prev: number, _next, index)=>prev+index,0)
+  Array.from({length: 100_000_000}).reduce((prev: number, _next, index)=>prev+index,0)
 
   hydrateRoot(
     document.body.querySelector("#root")!,

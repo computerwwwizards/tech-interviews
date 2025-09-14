@@ -16,22 +16,17 @@ const cleanUp = hasLoadedObserver
   });
 
 const isDeferedInactive = new URLSearchParams(window.location.search).get('deferedHydrationDeactivated')
-
-if (navigator.userActivation.hasBeenActive || isDeferedInactive) {
-  hasLoadedObserver.update(true);
-} else {
-  function appendListener<K extends keyof HTMLElementEventMap>(eventType: K) {
-    const handler = function (this: typeof body) {
+const handler = function (this: typeof body) {
       hasLoadedObserver.update(true);
-
-      this.removeEventListener(eventType, handler);
     }
-
-
+      function appendListener<K extends keyof HTMLElementEventMap>(eventType: K) {
     body.addEventListener(eventType, handler)
 
     return () => body.removeEventListener(eventType, handler)
   }
+if (navigator.userActivation.hasBeenActive || isDeferedInactive) {
+  hasLoadedObserver.update(true);
+} else {
   const cleanListeners = [
     appendListener('scroll'),
     appendListener('touchstart'),
@@ -41,9 +36,9 @@ if (navigator.userActivation.hasBeenActive || isDeferedInactive) {
 
   const lastClean = hasLoadedObserver.subscribeWithCleanup((hasLoaded) => {
     if (hasLoaded) {
+      lastClean()
       cleanListeners.forEach(clean => {
         clean()
-        lastClean()
       })
     }
 
