@@ -13,6 +13,9 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@codesandbox/sandpack-react": "^2.20.0",
+    "@computerwwwizards/dependency-injection": "^1.1.1",
+    "@computerwwwizards/lezer-react": "^1.0.0",
     "@computerwwwizards/observers": "^1.0.0",
     "@tanstack/react-router": "^1.131.41",
     "react": "^19.1.1",

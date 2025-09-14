@@ -4,27 +4,27 @@ import { TextQuestion } from "../components/text-question";
 export const routeConfig: RouteObject = {
   path: '/',
   Component: Page,
-  loader(){
+  loader() {
     return {
       questions: [
         {
           id: "1",
           title: 'And the first question starts right here (rendering)',
-          description:  "Disable javascript, why do you think this info continues to be showed while other react applicactions usually show a text asking to enable javascript for the application to work.",
+          description: "Disable javascript, why do you think this info continues to be showed while other react applicactions usually show a text asking to enable javascript for the application to work.",
           topics: [
             'Types of web rendering',
             'SSR, SSG, CSR',
             'React in the server'
-          ] 
+          ]
         },
-      ]     
+      ]
     }
   }
 }
 
 
-interface DataResponse{
-  questions: {title: string; description: string; topics?: string[], id: string}[]
+interface DataResponse {
+  questions: { title: string; description: string; topics?: string[], id: string }[]
 }
 
 function Page() {
@@ -41,8 +41,8 @@ function Page() {
       </h2>
     </hgroup>
     {
-      data?.questions?.map(({id,description, title, topics})=><TextQuestion 
-        description={description} 
+      data?.questions?.map(({ id, description, title, topics }) => <TextQuestion
+        description={description}
         title={title}
         key={id}
         topics={topics}
@@ -52,8 +52,8 @@ function Page() {
       title={'Metrics'}
       description={<p>
         Use the browser devtools to get ligthouse performance metrics
-        of this page, and of <a 
-          className="underline text-cyan-400" 
+        of this page, and of <a
+          className="underline text-cyan-400"
           href="./?deferedHydrationDeactivated=true&heavyProcessActive=true"
         >this variant of this same page</a>,
         can u tell why there is a substantial difference in the performance (hint: inspect network calls)
@@ -68,11 +68,11 @@ function Page() {
       ]}
     />
     <div className="p-4">
-      <Link 
-        className="hover:bg-blue-900 block w-full rounded-2xl bg-fuchsia-600 p-3" 
+      <Link
+        className="hover:bg-blue-900 block w-full rounded-2xl bg-fuchsia-600 p-3"
         to={{
-          pathname: '/client-only'
-        }} 
+          pathname: '/use-state-init'
+        }}
         viewTransition
       >
         Next questions
