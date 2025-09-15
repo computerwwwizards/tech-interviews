@@ -46,7 +46,7 @@ export default function Page() {
         'data-source.ts': dataSourceCode
       }}
     />
-    <div className="p-4">
+    <div className="grid p-4 gap-4">
       <Link
         className="hover:bg-blue-900 block w-full rounded-2xl bg-fuchsia-600 p-3"
         to={{

@@ -11,9 +11,7 @@ function Container() {
   return (
     <div>
       <SearchInput
-        inputProps={{
-          onChange: handleSearch
-        }}
+        onChange={handleSearch}
       />
 
       <Suspense fallback={<div>Loading...</div>}>

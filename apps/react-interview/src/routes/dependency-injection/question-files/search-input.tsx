@@ -1,14 +1,14 @@
 import { type InputHTMLAttributes } from "react";
 
-export interface SearchInputProps {
-  inputProps: InputHTMLAttributes<HTMLInputElement>;
+export interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement>{
+
 }
 
-function SearchInput({ inputProps }: SearchInputProps) {
+function SearchInput({ ...props }: SearchInputProps) {
 
   return (
     <div>
-      <input {...inputProps} placeholder="Search..." />
+      <input placeholder="Search..." {...props}  />
     </div>
   )
 }
