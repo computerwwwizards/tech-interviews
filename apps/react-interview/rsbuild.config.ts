@@ -43,7 +43,9 @@ export default defineConfig(({
         const serverRenderMiddleware = serverRender(serverContext);
 
         unshift(async (req, res, next) => {
-          if (req.method === 'GET' && req.url === '/') {
+          const currenturl = new URL(`http://localhost:3000${req.url ?? '/'}`)
+      
+          if (req.method === 'GET' && currenturl.pathname === '/') {
             try {
               return await serverRenderMiddleware(req, res, next);
             } catch (err) {

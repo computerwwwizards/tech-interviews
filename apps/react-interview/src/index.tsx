@@ -1,21 +1,19 @@
 import "./App.css";
-
+/// <reference types="@types/dom-chromium-ai" />
 import { ObservableStore } from '@computerwwwizards/observers'
 
 const { body } = document
 
-
 const hasLoadedObserver = new ObservableStore(false);
 
-const isDeferedInactive = new URLSearchParams(window.location.search).get('deferedHydrationDeactivated')
-
-
+const isDeferedInactive = !!(new URLSearchParams(window.location.search).get('deferredHydrationDeactivated'))
 
 const cleanUp = hasLoadedObserver
   .subscribeWithCleanup(hasLoaded => {
-    const hasHeavyProcessFlag = new URLSearchParams(window.location.search).get('heavyProcessActive');
     if (hasLoaded) {
-      import('./lazy.init').then(({ init }) => init(!!isDeferedInactive && !!hasHeavyProcessFlag))
+      const hasHeavyProcessFlag = !!(new URLSearchParams(window.location.search).get('heavyProcessActive'));
+
+      import('./lazy.init').then(({ init }) => init(isDeferedInactive && hasHeavyProcessFlag))
       cleanUp();
     }
   });

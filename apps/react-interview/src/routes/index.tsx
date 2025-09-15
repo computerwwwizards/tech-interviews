@@ -39,7 +39,7 @@ function Page() {
         </strong>
       </h1>
       <h2 className="text-cyan-300">
-        Page with some use cases to measure your front-end knowledge
+        Page with use cases to measure your front-end knowledge
       </h2>
     </hgroup>
     {
