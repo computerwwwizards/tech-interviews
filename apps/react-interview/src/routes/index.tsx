@@ -11,8 +11,8 @@ export const routeConfig: CustomRouteObject = {
       questions: [
         {
           id: "1",
-          title: 'And the first question starts right here (rendering)',
-          description: "Disable javascript, why do you think this info continues to be showed while other react applicactions usually show a text asking to enable javascript for the application to work.",
+          title: 'Rendering',
+          description: "Disable JavaScript in your browser and notice that this content remains visible, while most React applications typically show a message asking you to enable JavaScript. Why do you think this happens?",
           topics: [
             'Types of web rendering',
             'SSR, SSG, CSR',
@@ -39,7 +39,7 @@ function Page() {
         </strong>
       </h1>
       <h2 className="text-cyan-300">
-        Page with some use cases to measure your front end kwoledge
+        Page with some use cases to measure your front-end knowledge
       </h2>
     </hgroup>
     {
@@ -51,21 +51,23 @@ function Page() {
       />)
     }
     <TextQuestion
-      title={'Metrics'}
+      title={'Performance Metrics Analysis'}
       description={<p>
-        Use the browser devtools to get ligthouse performance metrics
-        of this page, and of <a
+        Use the browser DevTools to obtain Lighthouse performance metrics
+        for this page, and compare them with <a
           className="underline text-cyan-400"
-          href="./?deferedHydrationDeactivated=true&heavyProcessActive=true"
-        >this variant of this same page</a>,
-        can u tell why there is a substantial difference in the performance (hint: inspect network calls)
+          href="./?deferredHydrationDeactivated=true&heavyProcessActive=true"
+        >this variant of the same page</a>.
+        Can you identify and explain why there is a substantial difference in performance? 
+        <br /><br />
+        <strong>Hint:</strong> Inspect the network calls and analyze the loading patterns.
       </p>
       }
       topics={[
         'Hydration',
         'Code splitting',
         'Lazy init',
-        'Ligthouse',
+        'Lighthouse',
         'Client metrics'
       ]}
     />
@@ -77,7 +79,7 @@ function Page() {
         }}
         viewTransition
       >
-        Next questions
+        Next Question
       </Link>
     </div>
   </main>

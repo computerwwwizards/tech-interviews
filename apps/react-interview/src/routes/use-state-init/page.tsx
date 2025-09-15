@@ -23,15 +23,23 @@ const codeByFiles: Record<string, SandpackFile> = {
 export default function Page() {
   return <main className='grid gap-10'>
     <TextQuestion
-      title="Objects in the heap memory"
-      description="Change the necesary code so that every time you click the button, the counter must not increment (hint: not all the files are editable)"
+      title="React State Initialization and Memory Management"
+      description={
+        <p>
+          Examine the provided code and modify the necessary files to ensure that clicking the button 
+          does <strong>not</strong> increment the counter. 
+          <br /><br />
+          <strong>Important:</strong> Not all files are editable - you'll need to identify which files 
+          you can modify to achieve the desired behavior.
+        </p>
+      }
       topics={[
         "React Hooks",
         "useState",
-        "initiliazation",
+        "Initialization",
         "Memory optimization",
       ]}
-      extraPoints="Explain why the initial number showed is 8"
+      extraPoints="Explain why the initial number displayed is 8 and what causes this behavior."
     />
     <Sandpack
       template='react-ts'
@@ -49,11 +57,11 @@ export default function Page() {
       <Link
         className="hover:bg-blue-900 block w-full rounded-2xl bg-fuchsia-600 p-3"
         to={{
-          pathname: '/dependency-injection'
+          pathname: '/use-sync-external-store'
         }}
         viewTransition
       >
-        Next questions
+        Next Question
       </Link>
     </div>
   </main>
