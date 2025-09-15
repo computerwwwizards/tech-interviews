@@ -9,14 +9,14 @@ export const ServiceProviderContext = createContext({} as PrimitiveContainer<Ser
 
 function ServiceProvider({ children }: Readonly<PropsWithChildren>) {
 
-  const [container] = useState(() => {
-    const container = new PrimitiveContainer<ServiceOperations>()
+  const [iocContainer] = useState(() => {
+    const iocContainer = new PrimitiveContainer<ServiceOperations>()
 
-    return container
+    return iocContainer
   })
 
   return (
-    <ServiceProviderContext value={container} >
+    <ServiceProviderContext value={iocContainer} >
       {children}
     </ServiceProviderContext>
   )
