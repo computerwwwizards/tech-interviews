@@ -65,6 +65,15 @@ export default function Page() {
       files={codeByFiles}
     />
     <div className="p-4">
+       <Link
+        className="hover:bg-blue-900 block w-full rounded-2xl bg-fuchsia-600 p-3"
+        to={{
+          pathname: '/use-state-init'
+        }}
+        viewTransition
+      >
+        Previous Question
+      </Link>
       <Link
         className="hover:bg-blue-900 block w-full rounded-2xl bg-fuchsia-600 p-3"
         to={{

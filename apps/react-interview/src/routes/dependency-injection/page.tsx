@@ -78,6 +78,15 @@ export default function Page() {
       <Link
         className="hover:bg-blue-900 block w-full rounded-2xl bg-fuchsia-600 p-3"
         to={{
+          pathname: '/use-sync-external-store'
+        }}
+        viewTransition
+      >
+        Previous Question
+      </Link>
+      <Link
+        className="hover:bg-blue-900 block w-full rounded-2xl bg-fuchsia-600 p-3"
+        to={{
           pathname: '/coupling'
         }}
         viewTransition

@@ -26,10 +26,10 @@ export default function Page() {
       title="React State Initialization and Memory Management"
       description={
         <p>
-          Examine the provided code and modify the necessary files to ensure that clicking the button 
-          does <strong>not</strong> increment the counter. 
+          Examine the provided code and modify the necessary files to ensure that clicking the button
+          does <strong>not</strong> increment the counter.
           <br /><br />
-          <strong>Important:</strong> Not all files are editable - you'll need to identify which files 
+          <strong>Important:</strong> Not all files are editable - you'll need to identify which files
           you can modify to achieve the desired behavior.
         </p>
       }
@@ -54,6 +54,14 @@ export default function Page() {
       files={codeByFiles}
     />
     <div className="p-4">
+      <Link
+        className="hover:bg-blue-900 block w-full rounded-2xl bg-fuchsia-600 p-3"
+        to={{
+          pathname: '/'
+        }}
+      >
+        Previous Question
+      </Link>
       <Link
         className="hover:bg-blue-900 block w-full rounded-2xl bg-fuchsia-600 p-3"
         to={{
