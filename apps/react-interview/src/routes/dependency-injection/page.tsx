@@ -2,8 +2,8 @@ import { Sandpack } from "@codesandbox/sandpack-react";
 import containerTestCode from './question-files/container.test?raw'
 import serviceProviderCode from "./question-files/service-provider?raw";
 import containerCode from "./question-files/container?raw";
-import searchInputCode from "./question-files/list-items?raw";
-import listItemsCode from "./question-files/search-input?raw";
+import searchInputCode from "./question-files/search-input?raw";
+import listItemsCode from "./question-files/list-items?raw";
 
 import { TextQuestion } from "../../components/text-question";
 import { Link } from "react-router";
