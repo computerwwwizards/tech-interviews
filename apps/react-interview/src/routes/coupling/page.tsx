@@ -2,9 +2,9 @@ import { Sandpack } from "@codesandbox/sandpack-react";
 import testCode from './question-files/entry?raw'
 import dataSourceCode from './question-files/data-source?raw'
 
-export default function Page(){
+export default function Page() {
 
-  return <Sandpack 
+  return <Sandpack
     template="test-ts"
     options={{
       showConsole: true,
@@ -15,6 +15,7 @@ export default function Page(){
       activeFile: 'entry.test.ts',
       visibleFiles: ['entry.test.ts', 'data-source.ts']
     }}
+
     theme={'dark'}
     files={{
       "entry.test.ts": testCode,
